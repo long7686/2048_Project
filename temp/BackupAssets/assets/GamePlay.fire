@@ -1144,6 +1144,8 @@
     "_endX": null,
     "_endY": null,
     "_vector": null,
+    "_isTouch": true,
+    "_isCLick": true,
     "_id": "a0gETN2uNEr4BB1NPa8GPv"
   },
   {

@@ -1,6 +1,6 @@
-(function() {"use strict";var __module = CC_EDITOR ? module : {exports:{}};var __filename = 'preview-scripts/assets/Scripts/GameManagaer.js';var __require = CC_EDITOR ? function (request) {return cc.require(request, require);} : function (request) {return cc.require(request, __filename);};function __define (exports, require, module) {"use strict";
-cc._RF.push(module, '016acPX4gdMY7UAGkEsBhhU', 'GameManagaer', __filename);
-// Scripts/GameManagaer.js
+(function() {"use strict";var __module = CC_EDITOR ? module : {exports:{}};var __filename = 'preview-scripts/assets/Scripts/GameManager.js';var __require = CC_EDITOR ? function (request) {return cc.require(request, require);} : function (request) {return cc.require(request, __filename);};function __define (exports, require, module) {"use strict";
+cc._RF.push(module, '016acPX4gdMY7UAGkEsBhhU', 'GameManager', __filename);
+// Scripts/GameManager.js
 
 "use strict";
 
@@ -607,5 +607,5 @@ cc._RF.pop();
             });
         }
         })();
-        //# sourceMappingURL=GameManagaer.js.map
+        //# sourceMappingURL=GameManager.js.map
         

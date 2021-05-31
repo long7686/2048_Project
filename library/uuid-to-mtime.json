@@ -425,8 +425,8 @@
     "relativePath": "Prefabs"
   },
   "b29c01d9-5fb7-4030-b627-32304e09fe25": {
-    "asset": 1622455863807,
-    "meta": 1622455863817,
+    "asset": 1622474931894,
+    "meta": 1622474931900,
     "relativePath": "GamePlay.fire"
   },
   "e0ddb2ed-904f-4ce7-8d34-73d090e08833": {
@@ -456,7 +456,7 @@
   },
   "016ac3d7-e207-4c63-b500-1a412c061854": {
     "asset": 1622456810005,
-    "meta": 1622456812207,
-    "relativePath": "Scripts/GameManagaer.js"
+    "meta": 1622474928713,
+    "relativePath": "Scripts/GameManager.js"
   }
 }
