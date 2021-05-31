@@ -1,0 +1,13 @@
+var colors = [];
+
+colors[0] = cc.color('C0B4A4');
+colors[2] = cc.color('E9DDD1');
+colors[4] = cc.color('EAD9BE');
+colors[8] = cc.color('EAD9BE');
+colors[16] = cc.color('F28151');
+colors[32] = cc.color('F26A4F');
+colors[64] = cc.color('F2472E');
+colors[128] = cc.color('E8C860');
+colors[256] = cc.color('E9C34F');
+
+module.exports = colors;
