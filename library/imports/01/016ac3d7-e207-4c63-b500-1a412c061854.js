@@ -1,6 +1,6 @@
 "use strict";
-cc._RF.push(module, '016acPX4gdMY7UAGkEsBhhU', 'GameManagaer');
-// Scripts/GameManagaer.js
+cc._RF.push(module, '016acPX4gdMY7UAGkEsBhhU', 'GameManager');
+// Scripts/GameManager.js
 
 "use strict";
 
