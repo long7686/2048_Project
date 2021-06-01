@@ -36,12 +36,12 @@ cc.Class({
         _endX : null,
         _endY : null,
         _vector : null,
+        _isCLick : true,
     },
 
     onLoad(){
         this._canMove = true;
         this.loseLayOut.active = false;
-        this._isTouch = true;
         this._isCLick = true;
     },
     
@@ -143,7 +143,7 @@ cc.Class({
 
     eventHandler(){
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-
+      
         if(cc.sys.isMobile){
             this.bgBox.on("touchstart", (event)=>{
                 this._startPoint = event.getLocation();
@@ -159,11 +159,15 @@ cc.Class({
         }
         if(cc.sys.IPAD || cc.sys.DESKTOP_BROWSER){
             this.bgBox.on("mousedown", (event) =>{
+                this._isCLick = false;
+                cc.log(this._isCLick)
                 this._startPoint = event.getLocation();
                 this._firstX = this._startPoint.x;
                 this._firstY = this._startPoint.y;
             })
             this.bgBox.on("mouseup", (event) =>{
+                this._isCLick = true;
+                cc.log(this._isCLick)
                 this._endPoint = event.getLocation();
                 this._endX = this._startPoint.x - this._endPoint.x;
                 this._endY = this._startPoint.y - this._endPoint.y;
@@ -190,32 +194,34 @@ cc.Class({
     },
 
     onKeyDown(event){
-        switch (event.keyCode) {
-            case cc.macro.KEY.right:
-                if(this._canMove){
-                    this._canMove = false
-                    this.blockMoveRight();
-                }
-                break;
-            case cc.macro.KEY.left:
-                if(this._canMove){
-                    this._canMove = false
-                    this.blockMoveLeft();
-                }
-                
-                break;
-            case cc.macro.KEY.up:
-                if(this._canMove){
-                    this._canMove = false
-                    this.blockMoveUp();
-                }
-                break;
-            case cc.macro.KEY.down:
-                if(this._canMove){
-                    this._canMove = false
-                    this.blockMoveDown();
-                }
-                break;
+        if(this._isCLick){
+            switch (event.keyCode) {
+                case cc.macro.KEY.right:
+                    if(this._canMove){
+                        this._canMove = false
+                        this.blockMoveRight();
+                    }
+                    break;
+                case cc.macro.KEY.left:
+                    if(this._canMove){
+                        this._canMove = false
+                        this.blockMoveLeft();
+                    }
+                    
+                    break;
+                case cc.macro.KEY.up:
+                    if(this._canMove){
+                        this._canMove = false
+                        this.blockMoveUp();
+                    }
+                    break;
+                case cc.macro.KEY.down:
+                    if(this._canMove){
+                        this._canMove = false
+                        this.blockMoveDown();
+                    }
+                    break;
+            };
         };
        
     },

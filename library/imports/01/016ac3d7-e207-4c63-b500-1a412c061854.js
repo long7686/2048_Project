@@ -41,13 +41,13 @@ cc.Class({
         _firstY: null,
         _endX: null,
         _endY: null,
-        _vector: null
+        _vector: null,
+        _isCLick: true
     },
 
     onLoad: function onLoad() {
         this._canMove = true;
         this.loseLayOut.active = false;
-        this._isTouch = true;
         this._isCLick = true;
     },
     start: function start() {
@@ -158,11 +158,15 @@ cc.Class({
         }
         if (cc.sys.IPAD || cc.sys.DESKTOP_BROWSER) {
             this.bgBox.on("mousedown", function (event) {
+                _this._isCLick = false;
+                cc.log(_this._isCLick);
                 _this._startPoint = event.getLocation();
                 _this._firstX = _this._startPoint.x;
                 _this._firstY = _this._startPoint.y;
             });
             this.bgBox.on("mouseup", function (event) {
+                _this._isCLick = true;
+                cc.log(_this._isCLick);
                 _this._endPoint = event.getLocation();
                 _this._endX = _this._startPoint.x - _this._endPoint.x;
                 _this._endY = _this._startPoint.y - _this._endPoint.y;
@@ -185,32 +189,34 @@ cc.Class({
         }
     },
     onKeyDown: function onKeyDown(event) {
-        switch (event.keyCode) {
-            case cc.macro.KEY.right:
-                if (this._canMove) {
-                    this._canMove = false;
-                    this.blockMoveRight();
-                }
-                break;
-            case cc.macro.KEY.left:
-                if (this._canMove) {
-                    this._canMove = false;
-                    this.blockMoveLeft();
-                }
+        if (this._isCLick) {
+            switch (event.keyCode) {
+                case cc.macro.KEY.right:
+                    if (this._canMove) {
+                        this._canMove = false;
+                        this.blockMoveRight();
+                    }
+                    break;
+                case cc.macro.KEY.left:
+                    if (this._canMove) {
+                        this._canMove = false;
+                        this.blockMoveLeft();
+                    }
 
-                break;
-            case cc.macro.KEY.up:
-                if (this._canMove) {
-                    this._canMove = false;
-                    this.blockMoveUp();
-                }
-                break;
-            case cc.macro.KEY.down:
-                if (this._canMove) {
-                    this._canMove = false;
-                    this.blockMoveDown();
-                }
-                break;
+                    break;
+                case cc.macro.KEY.up:
+                    if (this._canMove) {
+                        this._canMove = false;
+                        this.blockMoveUp();
+                    }
+                    break;
+                case cc.macro.KEY.down:
+                    if (this._canMove) {
+                        this._canMove = false;
+                        this.blockMoveDown();
+                    }
+                    break;
+            };
         };
     },
     touchEvent: function touchEvent(direction) {
