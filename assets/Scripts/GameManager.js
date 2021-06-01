@@ -147,7 +147,7 @@ cc.Class({
 
     eventHandler() {
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-        
+
         if (cc.sys.isMobile) {
             this.bgBox.on("touchstart", (event) => {
                 this._startPoint = event.getLocation();
@@ -259,7 +259,7 @@ cc.Class({
 
     mouseEvent() {
         if (this._vector.mag() > MIN_LENGTH) {
-            if (this._canMove){
+            if (this._canMove) {
                 this._canMove = false;
                 if (this._vector.x < 0 && this._vector.y < 50 && this._vector.y > -50) {
                     this.blockMoveRight();
@@ -273,13 +273,13 @@ cc.Class({
                     this.blockMoveDown();
                 }
             }
-            
+
         }
     },
 
     afterMove(hasMoved) {
         this._canMove = true
-        if(this.winLayOut.active || this.loseLayOut.active)  this._canMove = false;
+        if (this.winLayOut.active || this.loseLayOut.active) this._canMove = false;
         if (hasMoved) {
             this.updateScore(this._score + 1);
             this.addBlock();
@@ -309,18 +309,18 @@ cc.Class({
             callback && callback();
         })
         b2.runAction(cc.sequence(scale1, mid, scale2, finish));
-        if(this._first2048){
-            if(num === 2048){
+        if (this._first2048) {
+            if (num === 2048) {
                 this.gameWin()
                 this._first2048 = false;
-            } 
+            }
         }
     },
 
-    activeCombine(){
-        for(let i = 0; i < ROWS; i++){
-            for(let j = 0; j<ROWS; j++){
-                if (this._data[i][j] !== 0){
+    activeCombine() {
+        for (let i = 0; i < ROWS; i++) {
+            for (let j = 0; j < ROWS; j++) {
+                if (this._data[i][j] !== 0) {
                     this._arrBlock[i][j].getComponent("BlockController")._canCombine = true;
                 }
             }
@@ -336,7 +336,7 @@ cc.Class({
                 if (j < ROWS - 1 && this._data[i][j + 1] == n) return false;
                 if (i > 0 && this._data[i - 1][j] == n) return false;
                 if (i < ROWS - 1 && this._data[i + 1][j] == n) return false;
-                
+
             }
         }
         return true;
@@ -361,8 +361,8 @@ cc.Class({
                 });
                 hasMoved = true;
             } else if (this._data[x][y + 1] == this._data[x][y]) {
-                if (this._arrBlock[x][y+1].getComponent("BlockController")._canCombine){
-                    this._arrBlock[x][y+1].getComponent("BlockController")._canCombine = false;
+                if (this._arrBlock[x][y + 1].getComponent("BlockController")._canCombine) {
+                    this._arrBlock[x][y + 1].getComponent("BlockController")._canCombine = false;
                     let block = this._arrBlock[x][y];
                     let position = this._posisions[x][y + 1];
                     this._data[x][y + 1] *= 2;
@@ -375,7 +375,7 @@ cc.Class({
                     });
                     hasMoved = true;
                 }
-                
+
             } else {
                 callback && callback();
                 return;
@@ -398,7 +398,7 @@ cc.Class({
         for (let i = 0; i < toMove.length; i++) {
             move(toMove[i].x, toMove[i].y, () => {
                 count++;
-                if (count == toMove.length) {
+                if (count === toMove.length) {
                     this.afterMove(hasMoved);
                 }
             })
@@ -424,11 +424,11 @@ cc.Class({
                 });
                 hasMoved = true;
             } else if (this._data[x][y - 1] == this._data[x][y]) {
-                if (this._arrBlock[x][y-1].getComponent("BlockController")._canCombine){
-                    this._arrBlock[x][y-1].getComponent("BlockController")._canCombine = false
+                if (this._arrBlock[x][y - 1].getComponent("BlockController")._canCombine) {
+                    this._arrBlock[x][y - 1].getComponent("BlockController")._canCombine = false
                     let block = this._arrBlock[x][y];
                     let position = this._posisions[x][y - 1];
-    
+
                     this._data[x][y - 1] *= 2;
                     this._data[x][y] = 0;
                     this._arrBlock[x][y] = null
@@ -439,7 +439,7 @@ cc.Class({
                     });
                     hasMoved = true;
                 }
-                
+
             } else {
                 callback && callback();
                 return;
@@ -487,7 +487,7 @@ cc.Class({
                 });
                 hasMoved = true;
             } else if (this._data[x + 1][y] == this._data[x][y]) {
-                if(this._arrBlock[x + 1][y].getComponent("BlockController")._canCombine){
+                if (this._arrBlock[x + 1][y].getComponent("BlockController")._canCombine) {
                     this._arrBlock[x + 1][y].getComponent("BlockController")._canCombine = false;
                     let block = this._arrBlock[x][y];
                     let position = this._posisions[x + 1][y];
@@ -501,7 +501,7 @@ cc.Class({
                     });
                     hasMoved = true;
                 }
-                
+
             } else {
                 callback && callback();
                 return;
@@ -522,7 +522,7 @@ cc.Class({
         for (let i = 0; i < toMove.length; i++) {
             move(toMove[i].x, toMove[i].y, () => {
                 count++;
-                if (count == toMove.length) {
+                if (count === toMove.length) {
                     this.afterMove(hasMoved);
                 }
             })
@@ -548,11 +548,11 @@ cc.Class({
                 });
                 hasMoved = true;
             } else if (this._data[x - 1][y] == this._data[x][y]) {
-                if(this._arrBlock[x - 1][y].getComponent("BlockController")._canCombine){
+                if (this._arrBlock[x - 1][y].getComponent("BlockController")._canCombine) {
                     this._arrBlock[x - 1][y].getComponent("BlockController")._canCombine = false;
                     let block = this._arrBlock[x][y];
                     let position = this._posisions[x - 1][y];
-    
+
                     this._data[x - 1][y] *= 2;
                     this._data[x][y] = 0;
                     this._arrBlock[x][y] = null
@@ -561,9 +561,9 @@ cc.Class({
                             callback && callback();
                         })
                     });
-                    hasMoved = true;    
+                    hasMoved = true;
                 }
-                
+
             } else {
                 callback && callback();
                 return;
@@ -584,7 +584,7 @@ cc.Class({
         for (let i = 0; i < toMove.length; i++) {
             move(toMove[i].x, toMove[i].y, () => {
                 count++;
-                if (count == toMove.length) {
+                if (count === toMove.length) {
                     this.afterMove(hasMoved);
                 }
             })

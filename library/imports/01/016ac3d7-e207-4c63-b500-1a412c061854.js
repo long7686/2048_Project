@@ -270,6 +270,7 @@ cc.Class({
         }
     },
     afterMove: function afterMove(hasMoved) {
+        cc.log(this._canMove);
         this._canMove = true;
         if (this.winLayOut.active || this.loseLayOut.active) this._canMove = false;
         if (hasMoved) {
@@ -384,7 +385,7 @@ cc.Class({
         for (var _i = 0; _i < toMove.length; _i++) {
             move(toMove[_i].x, toMove[_i].y, function () {
                 count++;
-                if (count == toMove.length) {
+                if (count === toMove.length) {
                     _this2.afterMove(hasMoved);
                 }
             });
@@ -508,7 +509,7 @@ cc.Class({
         for (var _i3 = 0; _i3 < toMove.length; _i3++) {
             move(toMove[_i3].x, toMove[_i3].y, function () {
                 count++;
-                if (count == toMove.length) {
+                if (count === toMove.length) {
                     _this4.afterMove(hasMoved);
                 }
             });
@@ -570,7 +571,7 @@ cc.Class({
         for (var _i4 = 0; _i4 < toMove.length; _i4++) {
             move(toMove[_i4].x, toMove[_i4].y, function () {
                 count++;
-                if (count == toMove.length) {
+                if (count === toMove.length) {
                     _this5.afterMove(hasMoved);
                 }
             });
