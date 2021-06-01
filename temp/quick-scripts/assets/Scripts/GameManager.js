@@ -284,7 +284,6 @@ cc.Class({
         block.runAction(cc.sequence(action, finish));
     },
     combineBlock: function combineBlock(b1, b2, num, callback) {
-
         b1.destroy();
         var scale1 = cc.scaleTo(0.1, 1.1);
         var scale2 = cc.scaleTo(0.1, 1);

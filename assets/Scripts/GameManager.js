@@ -292,7 +292,6 @@ cc.Class({
     },
 
     combineBlock(b1, b2, num, callback){
-
         b1.destroy();
         let scale1 = cc.scaleTo(0.1, 1.1);
         let scale2 = cc.scaleTo(0.1, 1);
