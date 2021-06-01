@@ -11,7 +11,7 @@ var DIRECTION = cc.Enum({
     UP: -1,
     DOWN: -1
 });
-var MIN_LENGTH = 30;
+var MIN_LENGTH = 10;
 
 cc.Class({
     extends: cc.Component,
@@ -251,7 +251,6 @@ cc.Class({
     },
     mouseEvent: function mouseEvent() {
         if (this._vector.mag() > MIN_LENGTH) {
-            cc.log(this._vector.mag());
             if (this._vector.x < 0 && this._vector.y < 50 && this._vector.y > -50) {
                 this._canMove = false;
                 this.blockMoveRight();
@@ -332,7 +331,6 @@ cc.Class({
             } else if (_this2._data[x][y + 1] == _this2._data[x][y]) {
                 var _block = _this2._arrBlock[x][y];
                 var _position = _this2._posisions[x][y + 1];
-
                 _this2._data[x][y + 1] *= 2;
                 _this2._data[x][y] = 0;
                 _this2._arrBlock[x][y] = null;
@@ -392,7 +390,6 @@ cc.Class({
             } else if (_this3._data[x][y - 1] == _this3._data[x][y]) {
                 var _block2 = _this3._arrBlock[x][y];
                 var _position2 = _this3._posisions[x][y - 1];
-
                 _this3._data[x][y - 1] *= 2;
                 _this3._data[x][y] = 0;
                 _this3._arrBlock[x][y] = null;
@@ -451,7 +448,6 @@ cc.Class({
             } else if (_this4._data[x + 1][y] == _this4._data[x][y]) {
                 var _block3 = _this4._arrBlock[x][y];
                 var _position3 = _this4._posisions[x + 1][y];
-
                 _this4._data[x + 1][y] *= 2;
                 _this4._data[x][y] = 0;
                 _this4._arrBlock[x][y] = null;
@@ -509,7 +505,6 @@ cc.Class({
             } else if (_this5._data[x - 1][y] == _this5._data[x][y]) {
                 var _block4 = _this5._arrBlock[x][y];
                 var _position4 = _this5._posisions[x - 1][y];
-
                 _this5._data[x - 1][y] *= 2;
                 _this5._data[x][y] = 0;
                 _this5._arrBlock[x][y] = null;

@@ -314,7 +314,6 @@ cc.Class({
                 if(j < ROWS - 1 && this._data[i][j + 1] == n) return false;
                 if(i > 0 && this._data[i - 1][j] == n) return false;
                 if(i < ROWS - 1 && this._data[i + 1][j] == n) return false; 
-                
             }       
         }
         return true;
@@ -340,7 +339,6 @@ cc.Class({
             }else if(this._data[x][y + 1] == this._data[x][y]){
                 let block = this._arrBlock[x][y];
                 let position = this._posisions[x][y + 1];
-               
                 this._data[x][y + 1] *= 2;
                 this._data[x][y] = 0;
                 this._arrBlock[x][y] = null
@@ -399,7 +397,6 @@ cc.Class({
             }else if(this._data[x][y - 1] == this._data[x][y]){
                 let block = this._arrBlock[x][y];
                 let position = this._posisions[x][y - 1];
-               
                 this._data[x][y - 1] *= 2;
                 this._data[x][y] = 0;
                 this._arrBlock[x][y] = null
@@ -457,7 +454,6 @@ cc.Class({
             }else if(this._data[x + 1][y] == this._data[x][y]){
                 let block = this._arrBlock[x][y];
                 let position = this._posisions[x + 1][y];
-               
                 this._data[x + 1][y] *= 2;
                 this._data[x][y] = 0;
                 this._arrBlock[x][y] = null
@@ -514,7 +510,6 @@ cc.Class({
             }else if(this._data[x - 1][y] == this._data[x][y]){
                 let block = this._arrBlock[x][y];
                 let position = this._posisions[x - 1][y];
-               
                 this._data[x - 1][y] *= 2;
                 this._data[x][y] = 0;
                 this._arrBlock[x][y] = null
