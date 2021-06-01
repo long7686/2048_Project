@@ -12,11 +12,14 @@ cc.Class({
     properties: {
         titleBlock: {
             default: null,
-            type: cc.Label
+            type: cc.Label,
+            _canCombine: false
         }
     },
 
-    onLoad: function onLoad() {},
+    onLoad: function onLoad() {
+        this._canCombine = false;
+    },
     setNumber: function setNumber(number) {
         if (number === 0) {
             this.titleBlock.node.active = false;
