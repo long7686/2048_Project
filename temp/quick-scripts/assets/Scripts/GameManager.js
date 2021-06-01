@@ -270,7 +270,6 @@ cc.Class({
     afterMove: function afterMove(hasMoved) {
         this._canMove = true;
         if (hasMoved) {
-            this.updateScore(this._score + 1);
             this.addBlock();
             this.checkScore();
         } else if (this.checkGameOver()) {
@@ -285,6 +284,7 @@ cc.Class({
         block.runAction(cc.sequence(action, finish));
     },
     combineBlock: function combineBlock(b1, b2, num, callback) {
+
         b1.destroy();
         var scale1 = cc.scaleTo(0.1, 1.1);
         var scale2 = cc.scaleTo(0.1, 1);
@@ -295,6 +295,7 @@ cc.Class({
             callback && callback();
         });
         b2.runAction(cc.sequence(scale1, mid, scale2, finish));
+        this.updateScore(this._score + num);
     },
     checkGameOver: function checkGameOver() {
         for (var i = 0; i < ROWS; i++) {

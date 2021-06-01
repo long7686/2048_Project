@@ -275,7 +275,6 @@ cc.Class({
     afterMove(hasMoved){
         this._canMove = true
         if(hasMoved){
-            this.updateScore(this._score + 1);
             this.addBlock();
             this.checkScore();
         }
@@ -293,6 +292,7 @@ cc.Class({
     },
 
     combineBlock(b1, b2, num, callback){
+
         b1.destroy();
         let scale1 = cc.scaleTo(0.1, 1.1);
         let scale2 = cc.scaleTo(0.1, 1);
@@ -303,6 +303,7 @@ cc.Class({
             callback && callback();
         })
         b2.runAction(cc.sequence(scale1, mid, scale2, finish));
+        this.updateScore(this._score + num);
     },
 
     checkGameOver(){  
