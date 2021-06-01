@@ -597,5 +597,4 @@ cc.Class({
             this.bestScoreLabel.string = newScore;
         }
     },
-
 });
