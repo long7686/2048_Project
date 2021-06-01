@@ -97,14 +97,14 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 99,
+      "g": 91,
+      "b": 82,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 80,
+      "width": 22.25,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -154,15 +154,15 @@
     "_N$string": "2",
     "_fontSize": 40,
     "_lineHeight": 40,
-    "_enableWrapText": false,
+    "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
-    "_N$fontFamily": "Comic Sans MS",
-    "_N$overflow": 2,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
     "_N$cacheMode": 0,
     "_id": ""
   },

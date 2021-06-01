@@ -1,17 +1,10 @@
 "use strict";
-cc._RF.push(module, '016acPX4gdMY7UAGkEsBhhU', 'GameManager');
-// Scripts/GameManager.js
+cc._RF.push(module, '016acPX4gdMY7UAGkEsBhhU', 'GameManagaer');
+// Scripts/GameManagaer.js
 
 "use strict";
 
 var ROWS = 4;
-var DIRECTION = cc.Enum({
-    RIGHT: -1,
-    LEFT: -1,
-    UP: -1,
-    DOWN: -1
-});
-var MIN_LENGTH = 10;
 
 cc.Class({
     extends: cc.Component,
@@ -24,7 +17,6 @@ cc.Class({
         cellPrefab: cc.Prefab,
         loseLayOut: cc.Node,
         winLayOut: cc.Node,
-
         _gap: {
             default: 10,
             serializable: false
@@ -34,27 +26,17 @@ cc.Class({
         _arrBlock: [],
         _posisions: [],
         _score: null,
-        _canMove: true,
-        _startPoint: null,
-        _endPoint: null,
-        _firstX: null,
-        _firstY: null,
-        _endX: null,
-        _endY: null,
-        _vector: null,
-        _isCLick: true
+        _canMove: true
     },
 
     onLoad: function onLoad() {
         this._canMove = true;
         this.loseLayOut.active = false;
-        this._isCLick = true;
     },
     start: function start() {
         this._blockSize = (this.bgBox.width - this._gap * 5) / 4;
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
 
-        this.eventHandler();
-        this.getScoreStorge();
         this.blockInit();
         this.init();
     },
@@ -138,146 +120,52 @@ cc.Class({
         this._score = num;
         this.scoreLabel.string = num;
     },
-    eventHandler: function eventHandler() {
-        var _this = this;
-
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-
-        if (cc.sys.isMobile) {
-            this.bgBox.on("touchstart", function (event) {
-                _this._startPoint = event.getLocation();
-            });
-            this.bgBox.on("touchend", function (event) {
-                _this._endPoint = event.getLocation();
-                _this.reflectTouch();
-            });
-            this.bgBox.on("touchcancel", function (event) {
-                _this._endPoint = event.getLocation();
-                _this.reflectTouch();
-            });
-        }
-        if (cc.sys.IPAD || cc.sys.DESKTOP_BROWSER) {
-            this.bgBox.on("mousedown", function (event) {
-                _this._isCLick = false;
-                cc.log(_this._isCLick);
-                _this._startPoint = event.getLocation();
-                _this._firstX = _this._startPoint.x;
-                _this._firstY = _this._startPoint.y;
-            });
-            this.bgBox.on("mouseup", function (event) {
-                _this._isCLick = true;
-                cc.log(_this._isCLick);
-                _this._endPoint = event.getLocation();
-                _this._endX = _this._startPoint.x - _this._endPoint.x;
-                _this._endY = _this._startPoint.y - _this._endPoint.y;
-                _this._vector = cc.v2(_this._endX, _this._endY);
-                _this.mouseEvent();
-            });
-        }
-    },
-    reflectTouch: function reflectTouch() {
-        var startVec = this._startPoint;
-        var endVec = this._endPoint;
-        var pointsVec = endVec.sub(startVec);
-        var vecLength = pointsVec.mag();
-        if (vecLength > MIN_LENGTH) {
-            if (Math.abs(pointsVec.x) > Math.abs(pointsVec.y)) {
-                if (pointsVec.x > 0) this.touchEvent(DIRECTION.RIGHT);else this.touchEvent(DIRECTION.LEFT);
-            } else {
-                if (pointsVec.y > 0) this.touchEvent(DIRECTION.UP);else this.touchEvent(DIRECTION.DOWN);
-            }
-        }
-    },
     onKeyDown: function onKeyDown(event) {
-        if (this._isCLick) {
-            switch (event.keyCode) {
-                case cc.macro.KEY.right:
-                    if (this._canMove) {
-                        this._canMove = false;
-                        this.blockMoveRight();
-                    }
-                    break;
-                case cc.macro.KEY.left:
-                    if (this._canMove) {
-                        this._canMove = false;
-                        this.blockMoveLeft();
-                    }
+        switch (event.keyCode) {
+            case cc.macro.KEY.right:
+                if (this._canMove) {
+                    this._canMove = false;
+                    this.blockMoveRight();
+                }
+                break;
+            case cc.macro.KEY.left:
+                if (this._canMove) {
+                    this._canMove = false;
+                    this.blockMoveLeft();
+                }
+                break;
+            case cc.macro.KEY.up:
+                if (this._canMove) {
+                    this._canMove = false;
+                    this.blockMoveUp();
+                }
+                break;
+            case cc.macro.KEY.down:
+                if (this._canMove) {
+                    this._canMove = false;
+                    this.blockMoveDown();
+                }
+                break;
+        }
+    },
+<<<<<<< Updated upstream
 
-                    break;
-                case cc.macro.KEY.up:
-                    if (this._canMove) {
-                        this._canMove = false;
-                        this.blockMoveUp();
-                    }
-                    break;
-                case cc.macro.KEY.down:
-                    if (this._canMove) {
-                        this._canMove = false;
-                        this.blockMoveDown();
-                    }
-                    break;
-            };
-        };
-    },
-    touchEvent: function touchEvent(direction) {
-        switch (direction) {
-            case DIRECTION.RIGHT:
-                {
-                    if (this._canMove) {
-                        this._canMove = false;
-                        this.blockMoveRight();
-                    }
-                    break;
-                }
-            case DIRECTION.LEFT:
-                {
-                    if (this._canMove) {
-                        this._canMove = false;
-                        this.blockMoveLeft();
-                    }
-                    break;
-                }
-            case DIRECTION.UP:
-                {
-                    if (this._canMove) {
-                        this._canMove = false;
-                        this.blockMoveUp();
-                    }
-                    break;
-                }
-            case DIRECTION.DOWN:
-                {
-                    if (this._canMove) {
-                        this._canMove = false;
-                        this.blockMoveDown();
-                    }
-                    break;
-                }
-        }
-    },
-    mouseEvent: function mouseEvent() {
-        if (this._vector.mag() > MIN_LENGTH) {
-            if (this._vector.x < 0 && this._vector.y < 50 && this._vector.y > -50) {
-                this._canMove = false;
-                this.blockMoveRight();
-            } else if (this._vector.x > 0 && this._vector.y < 50 && this._vector.y > -50) {
-                this._canMove = false;
-                this.blockMoveLeft();
-            }
-            if (this._vector.y < 0 && this._vector.x < 50 && this._vector.x > -50) {
-                this._canMove = false;
-                this.blockMoveUp();
-            } else if (this._vector.y > 0 && this._vector.x < 50 && this._vector.x > -50) {
-                this._canMove = false;
-                this.blockMoveDown();
-            }
-        }
-    },
+
+    // updateBlockNum: function () {
+    //     for (let row = 0; row < ROWS; row++) {
+    //         for (let col = 0; col < ROWS; col++) {
+    //             this._arrBlock[row][col].getComponent("BlockController").setNumber(this._data[row][col]);
+    //         }
+    //     }
+    // },
+
+=======
+>>>>>>> Stashed changes
     afterMove: function afterMove(hasMoved) {
         this._canMove = true;
         if (hasMoved) {
+            this.updateScore(this._score + 1);
             this.addBlock();
-            this.checkScore();
         } else if (this.checkGameOver()) {
             this.gameOver();
         }
@@ -300,7 +188,6 @@ cc.Class({
             callback && callback();
         });
         b2.runAction(cc.sequence(scale1, mid, scale2, finish));
-        this.updateScore(this._score + num);
     },
     checkGameOver: function checkGameOver() {
         for (var i = 0; i < ROWS; i++) {
@@ -316,32 +203,32 @@ cc.Class({
         return true;
     },
     blockMoveRight: function blockMoveRight() {
-        var _this2 = this;
+        var _this = this;
 
         var hasMoved = false;
         var move = function move(x, y, callback) {
-            if (y == ROWS + 1 || _this2._data[x][y] == 0) {
+            if (y == ROWS + 1 || _this._data[x][y] == 0) {
                 callback && callback();
                 return;
-            } else if (_this2._data[x][y + 1] == 0) {
-                var block = _this2._arrBlock[x][y];
-                var position = _this2._posisions[x][y + 1];
-                _this2._arrBlock[x][y + 1] = block;
-                _this2._data[x][y + 1] = _this2._data[x][y];
-                _this2._data[x][y] = 0;
-                _this2._arrBlock[x][y] = null;
-                _this2.moveBlock(block, position, function () {
+            } else if (_this._data[x][y + 1] == 0) {
+                var block = _this._arrBlock[x][y];
+                var position = _this._posisions[x][y + 1];
+                _this._arrBlock[x][y + 1] = block;
+                _this._data[x][y + 1] = _this._data[x][y];
+                _this._data[x][y] = 0;
+                _this._arrBlock[x][y] = null;
+                _this.moveBlock(block, position, function () {
                     move(x, y + 1, callback);
                 });
                 hasMoved = true;
-            } else if (_this2._data[x][y + 1] == _this2._data[x][y]) {
-                var _block = _this2._arrBlock[x][y];
-                var _position = _this2._posisions[x][y + 1];
-                _this2._data[x][y + 1] *= 2;
-                _this2._data[x][y] = 0;
-                _this2._arrBlock[x][y] = null;
-                _this2.moveBlock(_block, _position, function () {
-                    _this2.combineBlock(_block, _this2._arrBlock[x][y + 1], _this2._data[x][y + 1], function () {
+            } else if (_this._data[x][y + 1] == _this._data[x][y]) {
+                var _block = _this._arrBlock[x][y];
+                var _position = _this._posisions[x][y + 1];
+                _this._data[x][y + 1] *= 2;
+                _this._data[x][y] = 0;
+                _this._arrBlock[x][y] = null;
+                _this.moveBlock(_block, _position, function () {
+                    _this.combineBlock(_block, _this._arrBlock[x][y + 1], _this._data[x][y + 1], function () {
                         callback && callback();
                     });
                 });
@@ -363,44 +250,45 @@ cc.Class({
                 }
             }
         }
-
+        cc.log(toMove);
         var count = 0;
         for (var _i = 0; _i < toMove.length; _i++) {
             move(toMove[_i].x, toMove[_i].y, function () {
                 count++;
                 if (count == toMove.length) {
-                    _this2.afterMove(hasMoved);
+                    _this.afterMove(hasMoved);
                 }
             });
         }
     },
     blockMoveLeft: function blockMoveLeft() {
-        var _this3 = this;
+        var _this2 = this;
 
         var hasMoved = false;
         var move = function move(x, y, callback) {
-            if (y == 0 || _this3._data[x][y] == 0) {
+            if (y == 0 || _this2._data[x][y] == 0) {
                 callback && callback();
                 return;
-            } else if (_this3._data[x][y - 1] == 0) {
-                var block = _this3._arrBlock[x][y];
-                var position = _this3._posisions[x][y - 1];
-                _this3._arrBlock[x][y - 1] = block;
-                _this3._data[x][y - 1] = _this3._data[x][y];
-                _this3._data[x][y] = 0;
-                _this3._arrBlock[x][y] = null;
-                _this3.moveBlock(block, position, function () {
+            } else if (_this2._data[x][y - 1] == 0) {
+                var block = _this2._arrBlock[x][y];
+                var position = _this2._posisions[x][y - 1];
+                _this2._arrBlock[x][y - 1] = block;
+                _this2._data[x][y - 1] = _this2._data[x][y];
+                _this2._data[x][y] = 0;
+                _this2._arrBlock[x][y] = null;
+                _this2.moveBlock(block, position, function () {
                     move(x, y - 1, callback);
                 });
                 hasMoved = true;
-            } else if (_this3._data[x][y - 1] == _this3._data[x][y]) {
-                var _block2 = _this3._arrBlock[x][y];
-                var _position2 = _this3._posisions[x][y - 1];
-                _this3._data[x][y - 1] *= 2;
-                _this3._data[x][y] = 0;
-                _this3._arrBlock[x][y] = null;
-                _this3.moveBlock(_block2, _position2, function () {
-                    _this3.combineBlock(_block2, _this3._arrBlock[x][y - 1], _this3._data[x][y - 1], function () {
+            } else if (_this2._data[x][y - 1] == _this2._data[x][y]) {
+                var _block2 = _this2._arrBlock[x][y];
+                var _position2 = _this2._posisions[x][y - 1];
+
+                _this2._data[x][y - 1] *= 2;
+                _this2._data[x][y] = 0;
+                _this2._arrBlock[x][y] = null;
+                _this2.moveBlock(_block2, _position2, function () {
+                    _this2.combineBlock(_block2, _this2._arrBlock[x][y - 1], _this2._data[x][y - 1], function () {
                         callback && callback();
                     });
                 });
@@ -427,38 +315,39 @@ cc.Class({
             move(toMove[_i2].x, toMove[_i2].y, function () {
                 count++;
                 if (count == toMove.length) {
-                    _this3.afterMove(hasMoved);
+                    _this2.afterMove(hasMoved);
                 }
             });
         }
     },
     blockMoveDown: function blockMoveDown() {
-        var _this4 = this;
+        var _this3 = this;
 
         var hasMoved = false;
         var move = function move(x, y, callback) {
-            if (x == ROWS - 1 || _this4._data[x][y] == 0) {
+            if (x == ROWS - 1 || _this3._data[x][y] == 0) {
                 callback && callback();
                 return;
-            } else if (_this4._data[x + 1][y] == 0) {
-                var block = _this4._arrBlock[x][y];
-                var position = _this4._posisions[x + 1][y];
-                _this4._arrBlock[x + 1][y] = block;
-                _this4._data[x + 1][y] = _this4._data[x][y];
-                _this4._data[x][y] = 0;
-                _this4._arrBlock[x][y] = null;
-                _this4.moveBlock(block, position, function () {
+            } else if (_this3._data[x + 1][y] == 0) {
+                var block = _this3._arrBlock[x][y];
+                var position = _this3._posisions[x + 1][y];
+                _this3._arrBlock[x + 1][y] = block;
+                _this3._data[x + 1][y] = _this3._data[x][y];
+                _this3._data[x][y] = 0;
+                _this3._arrBlock[x][y] = null;
+                _this3.moveBlock(block, position, function () {
                     move(x + 1, y, callback);
                 });
                 hasMoved = true;
-            } else if (_this4._data[x + 1][y] == _this4._data[x][y]) {
-                var _block3 = _this4._arrBlock[x][y];
-                var _position3 = _this4._posisions[x + 1][y];
-                _this4._data[x + 1][y] *= 2;
-                _this4._data[x][y] = 0;
-                _this4._arrBlock[x][y] = null;
-                _this4.moveBlock(_block3, _position3, function () {
-                    _this4.combineBlock(_block3, _this4._arrBlock[x + 1][y], _this4._data[x + 1][y], function () {
+            } else if (_this3._data[x + 1][y] == _this3._data[x][y]) {
+                var _block3 = _this3._arrBlock[x][y];
+                var _position3 = _this3._posisions[x + 1][y];
+
+                _this3._data[x + 1][y] *= 2;
+                _this3._data[x][y] = 0;
+                _this3._arrBlock[x][y] = null;
+                _this3.moveBlock(_block3, _position3, function () {
+                    _this3.combineBlock(_block3, _this3._arrBlock[x + 1][y], _this3._data[x + 1][y], function () {
                         callback && callback();
                     });
                 });
@@ -484,38 +373,39 @@ cc.Class({
             move(toMove[_i3].x, toMove[_i3].y, function () {
                 count++;
                 if (count == toMove.length) {
-                    _this4.afterMove(hasMoved);
+                    _this3.afterMove(hasMoved);
                 }
             });
         }
     },
     blockMoveUp: function blockMoveUp() {
-        var _this5 = this;
+        var _this4 = this;
 
         var hasMoved = false;
         var move = function move(x, y, callback) {
-            if (x == 0 || _this5._data[x][y] == 0) {
+            if (x == 0 || _this4._data[x][y] == 0) {
                 callback && callback();
                 return;
-            } else if (_this5._data[x - 1][y] == 0) {
-                var block = _this5._arrBlock[x][y];
-                var position = _this5._posisions[x - 1][y];
-                _this5._arrBlock[x - 1][y] = block;
-                _this5._data[x - 1][y] = _this5._data[x][y];
-                _this5._data[x][y] = 0;
-                _this5._arrBlock[x][y] = null;
-                _this5.moveBlock(block, position, function () {
+            } else if (_this4._data[x - 1][y] == 0) {
+                var block = _this4._arrBlock[x][y];
+                var position = _this4._posisions[x - 1][y];
+                _this4._arrBlock[x - 1][y] = block;
+                _this4._data[x - 1][y] = _this4._data[x][y];
+                _this4._data[x][y] = 0;
+                _this4._arrBlock[x][y] = null;
+                _this4.moveBlock(block, position, function () {
                     move(x - 1, y, callback);
                 });
                 hasMoved = true;
-            } else if (_this5._data[x - 1][y] == _this5._data[x][y]) {
-                var _block4 = _this5._arrBlock[x][y];
-                var _position4 = _this5._posisions[x - 1][y];
-                _this5._data[x - 1][y] *= 2;
-                _this5._data[x][y] = 0;
-                _this5._arrBlock[x][y] = null;
-                _this5.moveBlock(_block4, _position4, function () {
-                    _this5.combineBlock(_block4, _this5._arrBlock[x - 1][y], _this5._data[x - 1][y], function () {
+            } else if (_this4._data[x - 1][y] == _this4._data[x][y]) {
+                var _block4 = _this4._arrBlock[x][y];
+                var _position4 = _this4._posisions[x - 1][y];
+
+                _this4._data[x - 1][y] *= 2;
+                _this4._data[x][y] = 0;
+                _this4._arrBlock[x][y] = null;
+                _this4.moveBlock(_block4, _position4, function () {
+                    _this4.combineBlock(_block4, _this4._arrBlock[x - 1][y], _this4._data[x - 1][y], function () {
                         callback && callback();
                     });
                 });
@@ -541,7 +431,7 @@ cc.Class({
             move(toMove[_i4].x, toMove[_i4].y, function () {
                 count++;
                 if (count == toMove.length) {
-                    _this5.afterMove(hasMoved);
+                    _this4.afterMove(hasMoved);
                 }
             });
         }
@@ -567,21 +457,6 @@ cc.Class({
         this._canMove = true;
         this.node.opacity = 255;
         this.winLayOut.active = false;
-    },
-    getScoreStorge: function getScoreStorge() {
-        var scoreStorge = cc.sys.localStorage.getItem('bestScore');
-        if (scoreStorge !== null) {
-            this.bestScoreLabel.string = JSON.parse(scoreStorge);
-        } else {
-            this.bestScoreLabel.string = 0;
-        }
-    },
-    checkScore: function checkScore() {
-        var newScore = parseInt(this.scoreLabel.string);
-        if (newScore > this.bestScoreLabel.string) {
-            cc.sys.localStorage.setItem('bestScore', JSON.stringify(newScore));
-            this.bestScoreLabel.string = newScore;
-        }
     }
 });
 
