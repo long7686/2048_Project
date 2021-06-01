@@ -11,7 +11,7 @@ var DIRECTION = cc.Enum({
     UP: -1,
     DOWN: -1
 });
-var MIN_LENGTH = 20;
+var MIN_LENGTH = 100;
 
 cc.Class({
     extends: cc.Component,
@@ -41,9 +41,7 @@ cc.Class({
         _firstY: null,
         _endX: null,
         _endY: null,
-        _vector: null,
-        _isTouch: true,
-        _isCLick: true
+        _vector: null
     },
 
     onLoad: function onLoad() {
@@ -54,7 +52,6 @@ cc.Class({
     },
     start: function start() {
         this._blockSize = (this.bgBox.width - this._gap * 5) / 4;
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
 
         this.eventHandler();
         this.getScoreStorge();
@@ -144,30 +141,26 @@ cc.Class({
     eventHandler: function eventHandler() {
         var _this = this;
 
-        if (this._isTouch) {
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+
+        if (cc.sys.isMobile) {
             this.bgBox.on("touchstart", function (event) {
                 _this._startPoint = event.getLocation();
-                _this._isCLick = false;
-                cc.log(_this._isCLick);
             });
             this.bgBox.on("touchend", function (event) {
                 _this._endPoint = event.getLocation();
                 _this.reflectTouch();
-                _this._isCLick = true;
             });
             this.bgBox.on("touchcancel", function (event) {
                 _this._endPoint = event.getLocation();
                 _this.reflectTouch();
-                _this._isCLick = true;
             });
         }
-        if (this._isCLick) {
+        if (cc.sys.IPAD || cc.sys.DESKTOP_BROWSER) {
             this.bgBox.on("mousedown", function (event) {
                 _this._startPoint = event.getLocation();
                 _this._firstX = _this._startPoint.x;
                 _this._firstY = _this._startPoint.y;
-                _this._isTouch = false;
-                cc.log(_this._isTouch);
             });
             this.bgBox.on("mouseup", function (event) {
                 _this._endPoint = event.getLocation();
@@ -175,8 +168,6 @@ cc.Class({
                 _this._endY = _this._startPoint.y - _this._endPoint.y;
                 _this._vector = cc.v2(_this._endX, _this._endY);
                 _this.mouseEvent();
-                cc.log(_this._vector.y);
-                _this._isTouch = true;
             });
         }
     },
@@ -259,25 +250,24 @@ cc.Class({
         }
     },
     mouseEvent: function mouseEvent() {
-        if (this._vector.x < 0 && this._vector.y < 50 && this._vector.y > -50) {
-            this._canMove = false;
-            this.blockMoveRight();
-            cc.log("Right");
-        } else if (this._vector.x > 0 && this._vector.y < 50 && this._vector.y > -50) {
-            this._canMove = false;
-            this.blockMoveLeft();
-            cc.log("Left");
-        }
-        if (this._vector.y < 0 && this._vector.x < 50 && this._vector.x > -50) {
-            this._canMove = false;
-            this.blockMoveUp();
-            cc.log("Up");
-            cc.log(this._vector.y);
-        } else if (this._vector.y > 0 && this._vector.x < 50 && this._vector.x > -50) {
-            cc.log("Down");
-            cc.log(this._vector.y);
-            this._canMove = false;
-            this.blockMoveDown();
+        if (this._vector.mag() > MIN_LENGTH) {
+            cc.log(this._vector.mag());
+            if (this._vector.x < 0 && this._vector.y < 50 && this._vector.y > -50) {
+                this._canMove = false;
+                this.blockMoveRight();
+            } else if (this._vector.x > 0 && this._vector.y < 50 && this._vector.y > -50) {
+                this._canMove = false;
+                this.blockMoveLeft();
+            }
+        } else {
+            cc.log(this._vector.mag());
+            if (this._vector.y < 0 && this._vector.x < 50 && this._vector.x > -50) {
+                this._canMove = false;
+                this.blockMoveUp();
+            } else if (this._vector.y > 0 && this._vector.x < 50 && this._vector.x > -50) {
+                this._canMove = false;
+                this.blockMoveDown();
+            }
         }
     },
     afterMove: function afterMove(hasMoved) {

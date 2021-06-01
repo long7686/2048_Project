@@ -5,7 +5,7 @@ const DIRECTION = cc.Enum({
     UP: -1,
     DOWN: -1
 });
-const MIN_LENGTH = 20;
+const MIN_LENGTH = 100;
 
 cc.Class({
     extends: cc.Component,
@@ -36,8 +36,6 @@ cc.Class({
         _endX : null,
         _endY : null,
         _vector : null,
-        _isTouch : true,
-        _isCLick : true,
     },
 
     onLoad(){
@@ -49,8 +47,7 @@ cc.Class({
     
     start () {
         this._blockSize = (this.bgBox.width - this._gap * 5) / 4;
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-        
+       
         this.eventHandler();
         this.getScoreStorge();
         this.blockInit();
@@ -145,28 +142,26 @@ cc.Class({
     },
 
     eventHandler(){
-        if(this._isTouch){
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+
+        if(cc.sys.isMobile){
             this.bgBox.on("touchstart", (event)=>{
                 this._startPoint = event.getLocation();
-                this._isCLick = false;
             })
             this.bgBox.on("touchend", (event) =>{
                 this._endPoint = event.getLocation();
                 this.reflectTouch();
-                this._isCLick = true;
             })
             this.bgBox.on("touchcancel", (event) =>{
                 this._endPoint = event.getLocation();
                 this.reflectTouch();
-                this._isCLick = true;
             })
         }
-        if(this._isCLick){
+        if(cc.sys.IPAD || cc.sys.DESKTOP_BROWSER){
             this.bgBox.on("mousedown", (event) =>{
                 this._startPoint = event.getLocation();
                 this._firstX = this._startPoint.x;
                 this._firstY = this._startPoint.y;
-                this._isTouch = false;
             })
             this.bgBox.on("mouseup", (event) =>{
                 this._endPoint = event.getLocation();
@@ -174,7 +169,6 @@ cc.Class({
                 this._endY = this._startPoint.y - this._endPoint.y;
                 this._vector = cc.v2(this._endX, this._endY);
                 this.mouseEvent();
-                this._isTouch = true;
             })
         }
     },
@@ -260,6 +254,8 @@ cc.Class({
     },
 
     mouseEvent(){
+        if(this._vector.mag() > MIN_LENGTH){
+            cc.log(this._vector.mag())
             if(this._vector.x < 0 && this._vector.y < 50 && this._vector.y > -50){
                 this._canMove = false
                 this.blockMoveRight();
@@ -267,6 +263,8 @@ cc.Class({
                 this._canMove = false
                 this.blockMoveLeft();
             }
+        }else{
+            cc.log(this._vector.mag())
             if(this._vector.y < 0 && this._vector.x < 50 && this._vector.x > -50){
                 this._canMove = false
                 this.blockMoveUp();
@@ -274,6 +272,7 @@ cc.Class({
                 this._canMove = false
                 this.blockMoveDown();
             }
+        }
     },
 
     afterMove(hasMoved){

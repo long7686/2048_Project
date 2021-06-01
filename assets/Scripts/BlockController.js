@@ -22,17 +22,16 @@ cc.Class({
         else{
             this.titleBlock.string = number;
             this.titleBlock.node.active = true;
+            this.titleBlock.node.color = cc.Color.WHITE;
             if(number in colors){
                 this.node.color = colors[number];
             }
+            if(number == 2){
+                this.titleBlock.node.color = cc.color('#635B52');
+            }
+            if(number == 4){
+                this.titleBlock.node.color = cc.color('#635B52');
+            }
         }
     },
-
-    // getRandomTitle(){
-    //     let titleNum = null;
-    //     Math.random() <= 0.95 ? titleNum = 2 : titleNum = 4;
-    //     return this.titleBlock.string = titleNum;
-    // }
-
-
 });
