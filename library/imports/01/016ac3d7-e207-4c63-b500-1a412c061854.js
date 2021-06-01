@@ -11,7 +11,7 @@ var DIRECTION = cc.Enum({
     UP: -1,
     DOWN: -1
 });
-var MIN_LENGTH = 100;
+var MIN_LENGTH = 30;
 
 cc.Class({
     extends: cc.Component,
@@ -259,8 +259,6 @@ cc.Class({
                 this._canMove = false;
                 this.blockMoveLeft();
             }
-        } else {
-            cc.log(this._vector.mag());
             if (this._vector.y < 0 && this._vector.x < 50 && this._vector.x > -50) {
                 this._canMove = false;
                 this.blockMoveUp();

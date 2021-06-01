@@ -5,7 +5,7 @@ const DIRECTION = cc.Enum({
     UP: -1,
     DOWN: -1
 });
-const MIN_LENGTH = 100;
+const MIN_LENGTH = 10;
 
 cc.Class({
     extends: cc.Component,
@@ -255,7 +255,6 @@ cc.Class({
 
     mouseEvent(){
         if(this._vector.mag() > MIN_LENGTH){
-            cc.log(this._vector.mag())
             if(this._vector.x < 0 && this._vector.y < 50 && this._vector.y > -50){
                 this._canMove = false
                 this.blockMoveRight();
@@ -263,8 +262,6 @@ cc.Class({
                 this._canMove = false
                 this.blockMoveLeft();
             }
-        }else{
-            cc.log(this._vector.mag())
             if(this._vector.y < 0 && this._vector.x < 50 && this._vector.x > -50){
                 this._canMove = false
                 this.blockMoveUp();
