@@ -1,79 +1,69 @@
-2021-06-01T07:08:19.880Z - normal: Load ~/.CocosCreator/settings.json
-2021-06-01T07:08:19.925Z - normal: Initializing Asset Database
-2021-06-01T07:08:19.927Z - normal: checking language setting...
-2021-06-01T07:08:19.927Z - normal: Language: en
-2021-06-01T07:08:20.496Z - success: preview server running at http://localhost:7456
-2021-06-01T07:08:20.509Z - success: protocol editor-framework registered
-2021-06-01T07:08:20.509Z - success: protocol app registered
-2021-06-01T07:08:20.509Z - success: protocol theme registered
-2021-06-01T07:08:20.510Z - success: protocol packages registered
-2021-06-01T07:08:20.510Z - success: protocol uuid registerred
-2021-06-01T07:08:20.510Z - success: protocol db registerred
-2021-06-01T07:08:20.510Z - success: protocol thumbnail registerred
-2021-06-01T07:08:20.510Z - success: protocol unpack registerred
-2021-06-01T07:08:20.510Z - success: protocol disable-commonjs registerred
-2021-06-01T07:08:22.296Z - normal: connected!
-2021-06-01T07:08:22.298Z - normal: Check project /Users/gemi/Sourcetree/2048_Project
-2021-06-01T07:08:22.299Z - normal: Initializing project /Users/gemi/Sourcetree/2048_Project
-2021-06-01T07:08:22.619Z - normal: Initializing Cocos2d
-2021-06-01T07:08:23.086Z - normal: Initializing engine extends
-2021-06-01T07:08:23.108Z - success: alipay-adapter loaded
-2021-06-01T07:08:23.116Z - success: asset-db-debugger loaded
-2021-06-01T07:08:23.117Z - success: baidu-adapter loaded
-2021-06-01T07:08:23.118Z - success: color-picker loaded
-2021-06-01T07:08:23.219Z - success: fb-audience-network loaded
-2021-06-01T07:08:23.264Z - success: fb-live-stream loaded
-2021-06-01T07:08:23.266Z - success: google-play-instant loaded
-2021-06-01T07:08:23.270Z - success: huawei-runtime loaded
-2021-06-01T07:08:23.440Z - success: cpk-publish loaded
-2021-06-01T07:08:23.441Z - success: jsb-adapter loaded
-2021-06-01T07:08:23.447Z - success: oppo-runtime loaded
-2021-06-01T07:08:23.451Z - success: package-manager loaded
-2021-06-01T07:08:23.555Z - success: qqplay-adapter loaded
-2021-06-01T07:08:23.557Z - success: runtime-dev-tools loaded
-2021-06-01T07:08:23.560Z - success: sdkbox loaded
-2021-06-01T07:08:23.564Z - success: tester loaded
-2021-06-01T07:08:23.567Z - success: ui-kit-preview-extra loaded
-2021-06-01T07:08:23.569Z - success: ui-kit-preview loaded
-2021-06-01T07:08:23.572Z - success: ui-kit loaded
-2021-06-01T07:08:23.576Z - success: vivo-runtime loaded
-2021-06-01T07:08:23.576Z - success: weapp-adapter loaded
-2021-06-01T07:08:23.577Z - success: xiaomi-adapter loaded
-2021-06-01T07:08:23.579Z - success: alipay-minigame loaded
-2021-06-01T07:08:23.615Z - success: assets loaded
-2021-06-01T07:08:23.617Z - success: builder loaded
-2021-06-01T07:08:23.806Z - success: cocos-services loaded
-2021-06-01T07:08:23.811Z - success: console loaded
-2021-06-01T07:08:23.837Z - success: fb-instant-games loaded
-2021-06-01T07:08:23.841Z - success: game-window loaded
-2021-06-01T07:08:23.843Z - success: google-instant-games loaded
-2021-06-01T07:08:23.846Z - success: hierarchy loaded
-2021-06-01T07:08:23.850Z - success: inspector loaded
-2021-06-01T07:08:23.851Z - success: keystore loaded
-2021-06-01T07:08:23.857Z - success: node-library loaded
-2021-06-01T07:08:23.859Z - success: package-asset loaded
-2021-06-01T07:08:23.861Z - success: preferences loaded
-2021-06-01T07:08:23.864Z - success: project-exporter loaded
-2021-06-01T07:08:23.868Z - success: project-importer loaded
-2021-06-01T07:08:23.871Z - success: project-settings loaded
-2021-06-01T07:08:23.875Z - success: scene loaded
-2021-06-01T07:08:23.876Z - success: simulator-debugger loaded
-2021-06-01T07:08:23.878Z - success: sprite-editor loaded
-2021-06-01T07:08:23.882Z - success: store loaded
-2021-06-01T07:08:23.888Z - success: timeline loaded
-2021-06-01T07:08:23.892Z - success: xiaomi-runtime loaded
-2021-06-01T07:08:24.001Z - success: im-plugin loaded
-2021-06-01T07:08:24.725Z - normal: Loading packages
-2021-06-01T07:08:24.732Z - normal: Watching packages
-2021-06-01T07:08:24.831Z - normal: Run Application
-2021-06-01T07:08:27.513Z - info: Cocos Services load base data!
-2021-06-01T07:21:11.034Z - normal: Label font size can't be shirnked less than 0!
-2021-06-01T07:23:14.237Z - info: Only the prefab node "Block" and its child nodes are saved.
-2021-06-01T07:34:47.985Z - info: Only the prefab node "Block" and its child nodes are saved.
-2021-06-01T07:35:47.058Z - info: Only the prefab node "Block" and its child nodes are saved.
-2021-06-01T07:35:48.094Z - info: Only the prefab node "Block" and its child nodes are saved.
-2021-06-01T07:36:57.007Z - info: Only the prefab node "Block" and its child nodes are saved.
-2021-06-01T07:38:34.920Z - info: Only the prefab node "Block" and its child nodes are saved.
-2021-06-01T07:39:25.727Z - info: Only the prefab node "Block" and its child nodes are saved.
-2021-06-01T07:39:27.192Z - info: Only the prefab node "Block" and its child nodes are saved.
-2021-06-01T07:45:27.736Z - info: Only the prefab node "Block" and its child nodes are saved.
+2021-06-01T10:07:47.714Z - normal: Load ~/.CocosCreator/settings.json
+2021-06-01T10:07:47.756Z - normal: Initializing Asset Database
+2021-06-01T10:07:47.757Z - normal: checking language setting...
+2021-06-01T10:07:47.758Z - normal: Language: en
+2021-06-01T10:07:48.328Z - success: preview server running at http://localhost:7456
+2021-06-01T10:07:48.341Z - success: protocol editor-framework registered
+2021-06-01T10:07:48.341Z - success: protocol app registered
+2021-06-01T10:07:48.341Z - success: protocol theme registered
+2021-06-01T10:07:48.341Z - success: protocol packages registered
+2021-06-01T10:07:48.341Z - success: protocol uuid registerred
+2021-06-01T10:07:48.341Z - success: protocol db registerred
+2021-06-01T10:07:48.341Z - success: protocol thumbnail registerred
+2021-06-01T10:07:48.341Z - success: protocol unpack registerred
+2021-06-01T10:07:48.342Z - success: protocol disable-commonjs registerred
+2021-06-01T10:07:48.949Z - normal: connected!
+2021-06-01T10:07:48.950Z - normal: Check project /Users/gemi/Sourcetree/2048_Project
+2021-06-01T10:07:48.952Z - normal: Initializing project /Users/gemi/Sourcetree/2048_Project
+2021-06-01T10:07:49.260Z - normal: Initializing Cocos2d
+2021-06-01T10:07:49.687Z - normal: Initializing engine extends
+2021-06-01T10:07:49.710Z - success: alipay-adapter loaded
+2021-06-01T10:07:49.718Z - success: asset-db-debugger loaded
+2021-06-01T10:07:49.725Z - success: baidu-adapter loaded
+2021-06-01T10:07:49.726Z - success: color-picker loaded
+2021-06-01T10:07:49.832Z - success: fb-audience-network loaded
+2021-06-01T10:07:49.877Z - success: fb-live-stream loaded
+2021-06-01T10:07:49.879Z - success: google-play-instant loaded
+2021-06-01T10:07:49.882Z - success: huawei-runtime loaded
+2021-06-01T10:07:50.055Z - success: cpk-publish loaded
+2021-06-01T10:07:50.056Z - success: jsb-adapter loaded
+2021-06-01T10:07:50.059Z - success: oppo-runtime loaded
+2021-06-01T10:07:50.062Z - success: package-manager loaded
+2021-06-01T10:07:50.167Z - success: qqplay-adapter loaded
+2021-06-01T10:07:50.168Z - success: runtime-dev-tools loaded
+2021-06-01T10:07:50.173Z - success: sdkbox loaded
+2021-06-01T10:07:50.176Z - success: tester loaded
+2021-06-01T10:07:50.178Z - success: ui-kit-preview-extra loaded
+2021-06-01T10:07:50.181Z - success: ui-kit-preview loaded
+2021-06-01T10:07:50.183Z - success: ui-kit loaded
+2021-06-01T10:07:50.187Z - success: vivo-runtime loaded
+2021-06-01T10:07:50.188Z - success: weapp-adapter loaded
+2021-06-01T10:07:50.188Z - success: xiaomi-adapter loaded
+2021-06-01T10:07:50.190Z - success: alipay-minigame loaded
+2021-06-01T10:07:50.226Z - success: assets loaded
+2021-06-01T10:07:50.229Z - success: builder loaded
+2021-06-01T10:07:50.409Z - success: cocos-services loaded
+2021-06-01T10:07:50.413Z - success: console loaded
+2021-06-01T10:07:50.435Z - success: fb-instant-games loaded
+2021-06-01T10:07:50.439Z - success: game-window loaded
+2021-06-01T10:07:50.441Z - success: google-instant-games loaded
+2021-06-01T10:07:50.446Z - success: hierarchy loaded
+2021-06-01T10:07:50.449Z - success: inspector loaded
+2021-06-01T10:07:50.450Z - success: keystore loaded
+2021-06-01T10:07:50.456Z - success: node-library loaded
+2021-06-01T10:07:50.458Z - success: package-asset loaded
+2021-06-01T10:07:50.460Z - success: preferences loaded
+2021-06-01T10:07:50.463Z - success: project-exporter loaded
+2021-06-01T10:07:50.467Z - success: project-importer loaded
+2021-06-01T10:07:50.470Z - success: project-settings loaded
+2021-06-01T10:07:50.474Z - success: scene loaded
+2021-06-01T10:07:50.475Z - success: simulator-debugger loaded
+2021-06-01T10:07:50.476Z - success: sprite-editor loaded
+2021-06-01T10:07:50.480Z - success: store loaded
+2021-06-01T10:07:50.486Z - success: timeline loaded
+2021-06-01T10:07:50.490Z - success: xiaomi-runtime loaded
+2021-06-01T10:07:50.590Z - success: im-plugin loaded
+2021-06-01T10:07:51.298Z - normal: Loading packages
+2021-06-01T10:07:51.302Z - normal: Watching packages
+2021-06-01T10:07:51.384Z - normal: Run Application
+2021-06-01T10:07:53.647Z - info: Cocos Services load base data!
