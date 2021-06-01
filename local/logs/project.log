@@ -1,0 +1,68 @@
+2021-06-01T14:05:18.575Z - normal: Load ~/.CocosCreator/settings.json
+2021-06-01T14:05:19.787Z - normal: Initializing Asset Database
+2021-06-01T14:05:19.789Z - normal: checking language setting...
+2021-06-01T14:05:19.789Z - normal: Language: en
+2021-06-01T14:05:20.882Z - success: preview server running at http://localhost:7456
+2021-06-01T14:05:20.885Z - success: protocol editor-framework registered
+2021-06-01T14:05:20.885Z - success: protocol app registered
+2021-06-01T14:05:20.885Z - success: protocol theme registered
+2021-06-01T14:05:20.885Z - success: protocol packages registered
+2021-06-01T14:05:20.885Z - success: protocol uuid registerred
+2021-06-01T14:05:20.885Z - success: protocol db registerred
+2021-06-01T14:05:20.885Z - success: protocol thumbnail registerred
+2021-06-01T14:05:20.885Z - success: protocol unpack registerred
+2021-06-01T14:05:20.885Z - success: protocol disable-commonjs registerred
+2021-06-01T14:05:21.826Z - normal: connected!
+2021-06-01T14:05:21.827Z - normal: Check project C:\Users\samsung\MyGitHub\2048DongRepo
+2021-06-01T14:05:21.829Z - normal: Initializing project C:\Users\samsung\MyGitHub\2048DongRepo
+2021-06-01T14:05:22.305Z - normal: Initializing Cocos2d
+2021-06-01T14:05:26.344Z - normal: Initializing engine extends
+2021-06-01T14:05:26.415Z - success: alipay-adapter loaded
+2021-06-01T14:05:26.437Z - success: asset-db-debugger loaded
+2021-06-01T14:05:26.446Z - success: baidu-adapter loaded
+2021-06-01T14:05:26.459Z - success: color-picker loaded
+2021-06-01T14:05:26.679Z - success: fb-audience-network loaded
+2021-06-01T14:05:26.782Z - success: fb-live-stream loaded
+2021-06-01T14:05:26.814Z - success: google-play-instant loaded
+2021-06-01T14:05:26.855Z - success: huawei-runtime loaded
+2021-06-01T14:05:27.777Z - success: cpk-publish loaded
+2021-06-01T14:05:27.784Z - success: jsb-adapter loaded
+2021-06-01T14:05:27.824Z - success: oppo-runtime loaded
+2021-06-01T14:05:27.843Z - success: package-manager loaded
+2021-06-01T14:05:28.088Z - success: qqplay-adapter loaded
+2021-06-01T14:05:28.106Z - success: runtime-dev-tools loaded
+2021-06-01T14:05:28.130Z - success: sdkbox loaded
+2021-06-01T14:05:28.151Z - success: tester loaded
+2021-06-01T14:05:28.170Z - success: ui-kit-preview-extra loaded
+2021-06-01T14:05:28.188Z - success: ui-kit-preview loaded
+2021-06-01T14:05:28.191Z - success: ui-kit loaded
+2021-06-01T14:05:28.244Z - success: vivo-runtime loaded
+2021-06-01T14:05:28.251Z - success: weapp-adapter loaded
+2021-06-01T14:05:28.258Z - success: xiaomi-adapter loaded
+2021-06-01T14:05:28.261Z - success: alipay-minigame loaded
+2021-06-01T14:05:28.325Z - success: assets loaded
+2021-06-01T14:05:28.328Z - success: builder loaded
+2021-06-01T14:05:28.698Z - success: cocos-services loaded
+2021-06-01T14:05:28.704Z - success: console loaded
+2021-06-01T14:05:28.749Z - success: fb-instant-games loaded
+2021-06-01T14:05:28.752Z - success: game-window loaded
+2021-06-01T14:05:28.754Z - success: google-instant-games loaded
+2021-06-01T14:05:28.760Z - success: hierarchy loaded
+2021-06-01T14:05:28.763Z - success: inspector loaded
+2021-06-01T14:05:28.765Z - success: keystore loaded
+2021-06-01T14:05:28.770Z - success: node-library loaded
+2021-06-01T14:05:28.772Z - success: package-asset loaded
+2021-06-01T14:05:28.774Z - success: preferences loaded
+2021-06-01T14:05:28.776Z - success: project-exporter loaded
+2021-06-01T14:05:28.778Z - success: project-importer loaded
+2021-06-01T14:05:28.781Z - success: project-settings loaded
+2021-06-01T14:05:28.786Z - success: scene loaded
+2021-06-01T14:05:28.788Z - success: simulator-debugger loaded
+2021-06-01T14:05:28.790Z - success: sprite-editor loaded
+2021-06-01T14:05:28.798Z - success: store loaded
+2021-06-01T14:05:28.804Z - success: timeline loaded
+2021-06-01T14:05:28.810Z - success: xiaomi-runtime loaded
+2021-06-01T14:05:33.413Z - info: Cocos Services load base data!
+2021-06-01T14:05:41.885Z - normal: Loading packages
+2021-06-01T14:05:41.897Z - normal: Watching packages
+2021-06-01T14:05:42.852Z - normal: Run Application

@@ -270,7 +270,6 @@ cc.Class({
         }
     },
     afterMove: function afterMove(hasMoved) {
-        cc.log(this._canMove);
         this._canMove = true;
         if (this.winLayOut.active || this.loseLayOut.active) this._canMove = false;
         if (hasMoved) {
